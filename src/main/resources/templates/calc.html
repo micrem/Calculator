@@ -8,7 +8,7 @@
 <body>
 <h1>Result</h1>
 <!-- <p th:text="'result: ' + ${calcData.result}" /> -->
-<p th:text="'result: ' + ${calcData.result}"></p>
+<p th:text="${calcData.num1} + ' ' + ${calcData.operator} +  ' ' + ${calcData.num2} + ' = ' + ${calcData.result}"/>
 <a href="/calc">Start New Calculation</a>
 </body>
 </html>

@@ -29,6 +29,7 @@ public class CalcControllerMvc {
         Double num2d = Double.parseDouble(calcData.getNum2());
         String operator = calcData.getOperator();
         result = Double.NaN;
+        
         if (operator.equalsIgnoreCase("*")){
             result = num1d * num2d;
         } else if (operator.equalsIgnoreCase("/")){
@@ -38,6 +39,7 @@ public class CalcControllerMvc {
         } else if (operator.equalsIgnoreCase("-")){
             result = num1d - num2d;
         }
+
         calcData.setResult(result.toString());
         mv.setViewName("calc");
         mv.addObject("calcData", calcData);
