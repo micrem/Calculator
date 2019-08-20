@@ -23,7 +23,8 @@ public class CalcControllerMvc {
     @PostMapping("/ergebnis")
     public ModelAndView calcSubmit(@ModelAttribute CalculatorDataString calcData, ModelAndView mv) {
         //CalculatorData calc = new CalculatorData(calcData.getNum1(), calcData.getNum2(), calcData.getOperator());
-        //calcData.setResult(calc.getResult().toString());
+        //String tempStr = calc.getResult().toString();
+
         Double result;
         Double num1d = Double.parseDouble(calcData.getNum1());
         Double num2d = Double.parseDouble(calcData.getNum2());
