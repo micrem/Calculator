@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Calculator</h1>
+<form action="#" th:action="@{/calc}" th:object="${calcData}" method="post">
+    <p>1st Number: <input type="text" th:field="*{num1}" /></p>
+    <p>2nd Number: <input type="text" th:field="*{num2}" /></p>
+    <p>Operator: <input type="text" th:field="*{operator}" /></p>
+
+    <p><input type="submit" value="Submit" /> </p>
+</form>
+</body>
+</html>
+

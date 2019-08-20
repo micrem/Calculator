@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>  <! MUSS "/" enthalten, thymeleaf braucht wohlgeformtes HTML />
+    <title>Greeting Template</title>
+</head>
+<body>
+<h1>Hello world from Thymeleaf!</h1>
+<h1>
+    <p th:text="'by ' + ${name} + '!'"></p> <!th:text thymeleaf sprache/>
+</h1>
+</body>
+</html>
