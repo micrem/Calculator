@@ -1,7 +1,8 @@
 package com.example.mrem0106.demomremSpringDemo2;
 
 //github test comment
-//dieser satz kein verb
+////dieser satz kein verb
+//test 2
 
 public class CalculatorDataString {
     public String getNum1() {
