@@ -29,22 +29,16 @@ public class CalcControllerMvc {
         Double num1d = Double.parseDouble(calcData.getNum1());
         Double num2d = Double.parseDouble(calcData.getNum2());
         String operator = calcData.getOperator();
-        result = Double.NaN;
+        Operator op;
 
-        if (operator.equalsIgnoreCase("*")){
-            result = num1d * num2d;
-        } else if (operator.equalsIgnoreCase("/")){
-            result = num1d / num2d;
-        } else if (operator.equalsIgnoreCase("+")){
-            result = num1d + num2d;
-        } else if (operator.equalsIgnoreCase("-")){
-            result = num1d - num2d;
-        }
 
+        Calculator calc = new Calculator();
+        op = calc.stringToEnum(operator);
+        result = calc.calculate(num1d, num2d, op);
         calcData.setResult(result.toString());
+
         mv.setViewName("calc");
         mv.addObject("calcData", calcData);
         return mv;
-        //return "calc";
     }
 }
