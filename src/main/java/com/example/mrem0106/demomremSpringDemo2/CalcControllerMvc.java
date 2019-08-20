@@ -20,7 +20,7 @@ public class CalcControllerMvc {
         return "calcInput";
     }
 
-    @PostMapping("/calc")
+    @PostMapping("/ergebnis")
     public ModelAndView calcSubmit(@ModelAttribute CalculatorDataString calcData, ModelAndView mv) {
         //CalculatorData calc = new CalculatorData(calcData.getNum1(), calcData.getNum2(), calcData.getOperator());
         //calcData.setResult(calc.getResult().toString());
@@ -29,7 +29,7 @@ public class CalcControllerMvc {
         Double num2d = Double.parseDouble(calcData.getNum2());
         String operator = calcData.getOperator();
         result = Double.NaN;
-        
+
         if (operator.equalsIgnoreCase("*")){
             result = num1d * num2d;
         } else if (operator.equalsIgnoreCase("/")){
