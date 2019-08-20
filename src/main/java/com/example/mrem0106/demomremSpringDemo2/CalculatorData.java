@@ -54,6 +54,7 @@ public class CalculatorData {
     }
 
     private void calculate(){
+        Calculator calculator = new Calculator();
         result = Double.NaN;
         if (operator.equalsIgnoreCase("*")){
             result = num1d * num2d;
