@@ -8,6 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @CrossOrigin
+//dev prod parity
+//
 public class CalculatorRestController {
     @GetMapping(path = "/calcrest")
     public CalculatorDataString calculate(@RequestParam String a, @RequestParam String b, @RequestParam String operant) {
