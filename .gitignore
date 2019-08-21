@@ -29,3 +29,10 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/resources/templates/App.view.xml
+src/main/resources/templates/App.controller.js
+src/main/resources/templates/ui5.html
+src/main/resources/templates/.DS_Store
+src/main/resources/.DS_Store
+src/main/.DS_Store
+src/main/.DS_Store
