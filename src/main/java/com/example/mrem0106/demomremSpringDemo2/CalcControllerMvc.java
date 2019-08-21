@@ -41,4 +41,13 @@ public class CalcControllerMvc {
         mv.addObject("calcData", calcData);
         return mv;
     }
+
+    @GetMapping("/ui5")
+    public String ui5Html(Model model) {
+        //mv.addObject("calcData", new CalculatorData() );
+        //mv.setViewName("calcInput");
+        //return mv;
+        //model.addAttribute("calcData", new CalculatorDataString());
+        return "ui5";
+    }
 }
