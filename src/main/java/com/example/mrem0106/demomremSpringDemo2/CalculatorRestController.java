@@ -17,8 +17,8 @@ public class CalculatorRestController {
         Operator operator = calculator.stringToEnum(operant);
         CalculatorDataString data = new CalculatorDataString();
 
-        double anum = Double.parseDouble(a);
-        double bnum = Double.parseDouble(b);
+        double anum = a.isEmpty() ? 0. : Double.parseDouble(a);
+        double bnum = b.isEmpty() ? 0. : Double.parseDouble(b);
 
         data.setNum1(a);
         data.setNum2(b);
