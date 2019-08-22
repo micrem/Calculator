@@ -25,7 +25,7 @@ public class CalculatorRestController {
         data.setOperator(operant);
         data.setResult(Double.toString(calculator.calculate(anum, bnum, operator)));
 
-        System.out.println("request : a= " + a + " b= " + b + " operator= " + operant + " result = " + data.getResult() );
+        System.out.println("request : a = " + a + "   b = " + b + "   operator = " + operant + "   result = " + data.getResult() );
 
         return data;
     }
