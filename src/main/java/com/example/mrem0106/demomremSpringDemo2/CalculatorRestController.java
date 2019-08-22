@@ -6,8 +6,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
-@CrossOrigin
+//@CrossOrigin
 //dev prod parity
 //
 public class CalculatorRestController {
@@ -17,8 +29,15 @@ public class CalculatorRestController {
         Operator operator = calculator.stringToEnum(operant);
         CalculatorDataString data = new CalculatorDataString();
 
-        double anum = a.isEmpty() ? 0. : Double.parseDouble(a);
-        double bnum = b.isEmpty() ? 0. : Double.parseDouble(b);
+        double anum=0.;
+        double bnum=0.;
+
+        try {
+            anum = Double.parseDouble(a);
+            bnum = Double.parseDouble(b);
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
 
         data.setNum1(a);
         data.setNum2(b);

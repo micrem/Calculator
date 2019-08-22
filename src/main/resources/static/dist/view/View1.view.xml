@@ -1,0 +1,27 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="simple-app.controller.View1"
+	displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Calculator">
+				<content>
+					<Input xmlns="sap.m" value="{restJsonModel>/num1}" id="input0" placeholder="Erste Zahl" type="Number" width="100%"/>
+					<Input xmlns="sap.m" value="{restJsonModel>/num2}" id="input1" placeholder="Zweite Zahl" type="Number" width="100%"/>
+					<RadioButtonGroup xmlns="sap.m" columns="1" id="group0">
+						<buttons>
+							<RadioButton text="Addieren" id="button_add"/>
+							<RadioButton text="Subtrahieren" id="button_sub"/>
+							<RadioButton text="Multiplizieren" id="button_mul"/>
+							<RadioButton text="Dividieren" id="button_div"/>
+						</buttons>
+					</RadioButtonGroup>
+					<VBox>
+						<!-- <Text text="modeldata: {myMODEL>/topElement/attribute1}"/> -->
+						<Text text="{restJsonModel>/num1} {restJsonModel&gt;/operator} {restJsonModel>/num2} = {restJsonModel>/result}"/>
+						<!-- <Input id="testInput" type="Number" value="{restJsonModel>/num1}" tooltip="Tooltipp für Testausgabe"/> -->
+					</VBox>
+					<Button xmlns="sap.m" text="Berechnen" id="button_calc" press="calculateResult"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
