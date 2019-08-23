@@ -56,12 +56,25 @@ public class jdbcController implements CommandLineRunner {
     }
 
     @GetMapping(path = "/restGetCustomerById")
-    public Customer calculate(@RequestParam int id) {
+    public Customer getCustomerById(@RequestParam int id) {
         String sql = "SELECT id, first_name, last_name FROM customers WHERE id = ?";
         Customer foundCustomer = jdbcTemplate.queryForObject(
                 sql, new Object[] { id },
                 (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")));
 
         return foundCustomer;
+    }
+
+    @GetMapping(path = "/restCreateCustomer")
+    public Customer createCustomer(@RequestParam String first_name, @RequestParam String last_name) {
+        // Uses JdbcTemplate's batchUpdate operation to bulk load data
+        jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES (?,?)", first_name, last_name);
+
+        String sql = "SELECT id, first_name, last_name FROM customers WHERE first_name = ? and last_name = ?";
+        Customer createdCustomer = jdbcTemplate.queryForObject(
+                sql, new Object[] { id },
+                (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")));
+
+        return createdCustomer;
     }
 }
