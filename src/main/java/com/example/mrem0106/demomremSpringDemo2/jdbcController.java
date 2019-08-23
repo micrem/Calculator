@@ -11,6 +11,7 @@ package com.example.mrem0106.demomremSpringDemo2;
         import org.springframework.web.bind.annotation.RequestParam;
         import org.springframework.web.bind.annotation.RestController;
 
+        import java.sql.ResultSet;
         import java.util.Arrays;
         import java.util.List;
         import java.util.stream.Collectors;
@@ -58,10 +59,7 @@ public class jdbcController implements CommandLineRunner {
     @GetMapping(path = "/restGetCustomerById")
     public Customer getCustomerById(@RequestParam int id) {
         String sql = "SELECT id, first_name, last_name FROM customers WHERE id = ?";
-        Customer foundCustomer = jdbcTemplate.queryForObject(
-                sql, new Object[] { id },
-                (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")));
-
+        Customer foundCustomer = jdbcTemplate.queryForObject(sql, new Object[] {id}, new CustomerRowMapper());
         return foundCustomer;
     }
 
@@ -71,6 +69,9 @@ public class jdbcController implements CommandLineRunner {
         jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES (?,?)", first_name, last_name);
 
         String sql = "SELECT id, first_name, last_name FROM customers WHERE first_name = ? and last_name = ?";
+
+        ResultSet rs = jdbcTemplate.ex;
+
         Customer createdCustomer = jdbcTemplate.queryForObject(
                 sql, new Object[] { id },
                 (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")));
